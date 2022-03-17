@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "59eb224d-79ed-49a5-92ea-ea5691682291",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 154,
+  "height": 153,
+  "platformSettings": {},
+  "subMetas": {
+    "minigame_pig_item1": {
+      "ver": "1.0.6",
+      "uuid": "67abc6a3-c994-4060-878f-cfbe1d697d53",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "59eb224d-79ed-49a5-92ea-ea5691682291",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 1,
+      "trimY": 1,
+      "width": 152,
+      "height": 151,
+      "rawWidth": 154,
+      "rawHeight": 153,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
