@@ -1,4 +1,5 @@
 import RaceController from "./RaceController";
+import RacingConfig from "./RacingConfig";
 
 const { ccclass, property } = cc._decorator;
 
@@ -11,6 +12,9 @@ export default class RankBox extends cc.Component {
     @property([cc.Node])
     animalIcon: cc.Node[] = [];
 
+    @property([cc.Label])
+    animalName: cc.Label[] = [];
+
     @property(RaceController)
     controller: RaceController = null;
 
@@ -19,6 +23,13 @@ export default class RankBox extends cc.Component {
     rankID = [-1,-1,-1,-1,-1,-1];
 
     positionLock = [false,false,false,false,false,false];
+
+    protected start(): void {
+        for(let i = 0; i< RacingConfig.animalCount; i++)
+        {
+            this.animalName[i].string = RacingConfig.animalName[i];
+        }
+    }
 
     protected update(dt: number): void {
         if(this.controller.playing)

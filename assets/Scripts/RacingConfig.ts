@@ -25,6 +25,9 @@ export default class RacingConfig extends cc.Component {
     
     //Number of animal, default is 6
     static animalCount = 6;
+
+    //Name of animals
+    static animalName = ["Gilgamesh", "Athena", "Hela", "Thor", "Odin", "Loki"];
     
     //Time limit for a race in seconds
     static maxTime = 100;
@@ -42,10 +45,10 @@ export default class RacingConfig extends cc.Component {
     static mapOffset = -960;
 
     //Max distance between 2 animal, change this to config the race, lower the longer it take
-    static maxDistance = 1200;
+    static maxDistance = 1400;
 
     //type of event, change this along side ApplyEvent function
-    static typeCount = 9;
+    static typeCount = 6;
 
     //Base speed RANDOM range of an animal
     static baseSpeedRange = {"lowest": 300, "highest": 400};
@@ -67,6 +70,7 @@ export default class RacingConfig extends cc.Component {
 
     //Flag
     static dataGenerated = false;
+    
 
 
     static ApplyEvent(type)
@@ -74,11 +78,16 @@ export default class RacingConfig extends cc.Component {
         if (type == 0) return 20;
         if (type == 1) return 30;
         if (type == 2) return 40;
-        if (type == 3) return -10;
-        if (type == 4) return -20;
-        if (type == 5) return -30;
+        if (type == 3) return 50;
+        if (type == 4) return -10;
+        if (type == 5) return -20;
+
+        //Not using these type right now
         if (type == 6) return 50;
         if (type == 7) return 60;
         if (type == 8) return 70;
     }
 }
+
+
+

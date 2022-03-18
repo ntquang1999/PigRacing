@@ -1,5 +1,6 @@
 import Pig from "./Pig";
 import RacingConfig from "./RacingConfig";
+import WinnerBoard from "./WinnerBoard";
 
 const { ccclass, property } = cc._decorator;
 
@@ -23,6 +24,9 @@ export default class RaceController extends cc.Component {
 
     @property(cc.Node)
     Grass: cc.Node = null;
+
+    @property(cc.Node)
+    Winboard: cc.Node = null;
 
     @property(cc.Button)
     beginBtn: cc.Button = null;
@@ -86,6 +90,21 @@ export default class RaceController extends cc.Component {
         }
     }
 
+    endGame()
+    {
+        this.Winboard.getComponent(WinnerBoard).rank = this.rank;
+            setTimeout(() => {
+                this.Winboard.active = true;
+                this.Winboard.opacity = 0;
+                cc.tween(this.Winboard).to(0.8,{opacity:255}).start();
+                for(let i = 0; i< RacingConfig.animalCount; i++)
+                {
+                    cc.tween(this.animal[i]).to(0.8,{opacity:0}).call(()=> {this.animal[i].active = false;}).start();
+                    
+                }
+            }, 500);
+    }
+
     updateCameraPos() {
         let cameraPos = (this.animalPosition[this.max(this.animalPosition)] + this.animalPosition[this.min(this.animalPosition)]) / 2;
 
@@ -129,6 +148,7 @@ export default class RaceController extends cc.Component {
                 this.rank.push(i);
                 if (this.rank.length == RacingConfig.animalCount) {
                     this.playing = false;
+                    this.endGame();
                 }
                 this.animal[i].getComponent(Pig).state = 0;
             }
