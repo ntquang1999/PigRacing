@@ -28,6 +28,9 @@ export default class RaceController extends cc.Component {
     @property(cc.Node)
     Winboard: cc.Node = null;
 
+    @property(cc.Label)
+    countDown: cc.Label = null;
+
     @property(cc.Button)
     beginBtn: cc.Button = null;
 
@@ -52,11 +55,17 @@ export default class RaceController extends cc.Component {
 
     rank = [];
 
-    protected start(): void {
+    countDowncallBack = null;
 
+    protected start(): void {
 
         this.getData();
         this.beginBtn.node.on("click", () => this.begin());
+
+        for(let i = 0; i< RacingConfig.animalCount; i++)
+        {
+            this.animal[i].active = true;
+        }
     }
 
     urlParam(name) {
@@ -69,22 +78,42 @@ export default class RaceController extends cc.Component {
         console.log(this.data);
     }
 
+   
+
+    
+
     begin() {
         if (RacingConfig.dataGenerated && !this.playing) {
-            this.playing = true;
+            this.countDown.node.active = true;
+            let countDownTime = 2;
+            this.countDowncallBack = ()=>{
+                if(countDownTime > 0)
+                    this.countDown.string = countDownTime + ""; 
+                else
+                    this.countDown.string = "START!!!";
+                countDownTime--;
+                if(countDownTime <-1) 
+                {
+                    this.unschedule(this.countDowncallBack);
+
+                    this.playing = true;
+                }
+            }
+            this.schedule(this.countDowncallBack, 1)
+
+            
             this.beginBtn.node.active = false;
         }
     }
 
     protected update(dt: number): void {
 
-
-
         this.updateCameraPos();
 
 
         if (this.playing) {
             
+            this.countDown.node.active = false;
             this.race(dt);
             
         }
@@ -118,7 +147,7 @@ export default class RaceController extends cc.Component {
         let oldCameraPos = this.camera.node.x;
         this.camera.node.setPosition(cc.v2(cameraPos, this.camera.node.y));
         this.Grass.x += 0.3 * (cameraPos - oldCameraPos);
-        this.Cloud.x += 0.6 * (cameraPos - oldCameraPos);
+        this.Cloud.x += 0.7 * (cameraPos - oldCameraPos);
     }
 
     race(dt)

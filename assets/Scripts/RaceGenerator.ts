@@ -27,11 +27,35 @@ export default class Generator extends cc.Component {
 
     counting = false;
 
-    protected start(): void {
-        this.generateWinner(1, 4, 3);
+    @property(cc.Label)
+    tb: cc.Label = null;
+
+    @property(cc.Node)
+    btn: cc.Node = null;
+
+    @property(cc.Node)
+    panel: cc.Node = null;
+
+    generate()
+    {
+        this.tb.node.active = true;
+        this.btn.active = false;
+        setTimeout(() => {
+            this.generateWinner(1, 0, 2);
+        }, 500);
+        
     }
 
     generateWinner(id1, id2, id3) {
+
+        let id = new Array(id1, id2, id3);
+
+        if(id[this.max(id)] >= RacingConfig.animalCount)
+        {
+            console.log("AA");
+            this.tb.string = "Thứ tự nhập vào không hợp lệ";
+            return;
+        }
 
         while (!this.Valid) {
 
@@ -56,7 +80,14 @@ export default class Generator extends cc.Component {
                 
 
                 for (let k = 0; k < this.getRandomInt(RacingConfig.eventRange.lowest, RacingConfig.eventRange.highest); k++) {
-                    this.event[i].push({ "time": this.getRandomInt(1, RacingConfig.maxEventTime), "type": this.getRandomInt(0, RacingConfig.typeCount) });
+                    let time = this.getRandomInt(1, RacingConfig.maxEventTime);
+                    let type = this.getRandomInt(0, RacingConfig.typeCount);
+                    if(time >= RacingConfig.maxEventTime - 9) type = 6; 
+                    if(time >= RacingConfig.maxEventTime - 8) type = 7; 
+                    if(time >= RacingConfig.maxEventTime - 7) type = 8;
+                    if(time >= RacingConfig.maxEventTime - 6) type = 9;  
+                    
+                    this.event[i].push({ "time": time, "type": type });
                 }
 
             };
@@ -66,6 +97,7 @@ export default class Generator extends cc.Component {
         RacingConfig.animalBaseSpeed = this.animalBaseSpeed;
         RacingConfig.event = this.event;
         RacingConfig.dataGenerated = true;
+        this.panel.active = false;
     }
 
     checkValid(id1, id2, id3, trackLength) {
@@ -150,6 +182,7 @@ export default class Generator extends cc.Component {
 
         if (id1 != rank[0]) return false;
         if (id2 != rank[1]) return false;
+        if (id3 == -100) return true;
         if (id3 != rank[2]) return false;
 
         return true;

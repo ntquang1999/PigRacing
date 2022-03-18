@@ -60,13 +60,13 @@ export default class RacingConfig extends cc.Component {
     static baseSpeed = [300,300,300,300,300,300];
 
     //Range of time to spawn events
-    static maxEventTime = 30;
+    static maxEventTime = 35;
 
     //Number of events
     static eventRange = {"lowest": 4, "highest": 10};
 
     //Speed limit of animal
-    static animalSpeedLimit = {"lowest": 40, "highest": 1000};
+    static animalSpeedLimit = {"lowest": 40, "highest": 2000};
 
     //Flag
     static dataGenerated = false;
@@ -86,6 +86,7 @@ export default class RacingConfig extends cc.Component {
         if (type == 6) return 50;
         if (type == 7) return 60;
         if (type == 8) return 70;
+        if (type == 9) return 100;
     }
 }
 

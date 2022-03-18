@@ -16,6 +16,7 @@ export default class WinnerBoard extends cc.Component {
     protected onEnable(): void {
         for(let i = 0; i< RacingConfig.animalCount; i++)
         {
+            this.animal[i].active = true;
             this.animal[i].getComponent(sp.Skeleton).animation = "iddle" + (this.rank[i]+1);
         }
         this.anim.animation = "congratulation";

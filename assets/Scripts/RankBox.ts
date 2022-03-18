@@ -27,6 +27,7 @@ export default class RankBox extends cc.Component {
     protected start(): void {
         for(let i = 0; i< RacingConfig.animalCount; i++)
         {
+            this.animalIcon[i].active = true;
             this.animalName[i].string = RacingConfig.animalName[i];
         }
     }
