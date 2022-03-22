@@ -1,0 +1,76 @@
+
+finish_line.png
+size: 512,1024
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Comp 1_00003
+  rotate: false
+  xy: 103, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00005
+  rotate: false
+  xy: 205, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00006
+  rotate: false
+  xy: 69, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00002
+  rotate: false
+  xy: 273, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00009
+  rotate: false
+  xy: 307, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00007
+  rotate: false
+  xy: 137, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00000
+  rotate: false
+  xy: 239, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00004
+  rotate: false
+  xy: 171, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00001
+  rotate: false
+  xy: 35, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1
+Comp 1_00008
+  rotate: false
+  xy: 1, 1
+  size: 32, 636
+  orig: 290, 800
+  offset: 125, 76
+  index: -1

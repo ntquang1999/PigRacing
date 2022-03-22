@@ -1,0 +1,38 @@
+{
+  "ver": "2.3.7",
+  "uuid": "54768a0f-088f-4324-bf25-41dff749af1c",
+  "importer": "texture",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 75,
+  "height": 80,
+  "platformSettings": {},
+  "subMetas": {
+    "HPL_HPPYPIG_coin_watermellon": {
+      "ver": "1.0.6",
+      "uuid": "3135b918-dddf-4a7d-87f9-37446a4c2b74",
+      "importer": "sprite-frame",
+      "rawTextureUuid": "54768a0f-088f-4324-bf25-41dff749af1c",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 75,
+      "height": 80,
+      "rawWidth": 75,
+      "rawHeight": 80,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
